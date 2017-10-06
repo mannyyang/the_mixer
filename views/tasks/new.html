@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create New Mix</title>
+	 <link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+	<script src="../js/jquery.js"></script>
+  <script src="../js/script.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Create Concoction</h1>
+		<form id='new-task'>
+		<label for="title">Title</label>
+		<input type="text" name="title" id="title">
+		<br>
+		<label for="measurements">Measurements</label>
+		<input type="text" name="measurement" id="measurement">&nbsp;&nbsp;<label for="ingredients">Ingredients</label>
+		<input type="text" name="ingredient" id="ingredient">
+		<input type="text" name="measurement" id="measurement">&nbsp;&nbsp;<input type="text" name="ingredient" id="ingredient">
+		<input type="text" name="measurement" id="measurement">&nbsp;&nbsp;<input type="text" name="ingredient" id="ingredient">
+		<input type="text" name="measurement" id="measurement">&nbsp;&nbsp;<input type="text" name="ingredient" id="ingredient">
+		<label for="instructions">Instructions</label>
+		<textarea name="instructions" rows="8" cols="60" id="instructions"></textarea>
+		<br>
+		<label for="image">Image Url</label>
+		<input type="text" name="image" id="img_url">
+		<label for="beverageType">Beverage Type</label>
+      <select class="one column" id="beverageType">
+        <option value="Option 1">Alcoholic</option>
+        <option value="Option 2">Non-alcoholic</option>
+      </select>  
+    <br>
+    <div>
+    <button class="submit">Mix it up</button>
+    <a class="button" href="/tasks">Back to drinks</a>
+    </div>
+	</form>
+	</div>
+</body>
+</html>

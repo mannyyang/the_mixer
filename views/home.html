@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Homepage</title>
+	 <link rel="stylesheet" href="../css/style.css">
+	<script src="../js/jquery.js"></script>
+	<script src="../js/script.js"></script>
+</head>
+<body>
+	
+	{{#alcohol}}
+	<img src="{{{strDrinkThumb}}}">
+	<p id="alcoholPref">{{strAlcoholic}}</p>
+		<button id="refresh">Another, please!</button>
+	<h2>{{strDrink}}<h2>
+	<ul class="ingredients">
+		<li>{{strMeasure1}} {{strIngredient1}}</li>
+		<li>{{strMeasure2}} {{strIngredient2}}</li>
+		<li>{{strMeasure3}} {{strIngredient3}}</li>
+		<li>{{strMeasure4}} {{strIngredient4}}</li>
+	</ul>
+	<p id="instructions">{{strInstructions}}</p>
+	<button id="save">SAVE</button>
+	{{/alcohol}}
+	
+</body>
+</html>

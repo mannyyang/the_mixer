@@ -1,0 +1,38 @@
+main {
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+	height: 50%;
+
+}
+
+h1 {
+	color: orange;
+	text-align: center;
+	margin: 0 auto;
+	font-family: 'Rouge Script', cursive;
+	font-size: 60px;
+	font-weight: 4em;
+	padding-top: 10px;
+	top: 500px;
+}
+
+p {
+	text-align: center;
+	margin: 0 auto;
+	font-family: 'Salsa', cursive;
+}
+
+input {
+	padding: 2px;
+	margin: 4px;
+}
+
+button {
+	padding: 2px;
+	margin: 4px;
+}
+
+a {
+	margin: 8px;
+}

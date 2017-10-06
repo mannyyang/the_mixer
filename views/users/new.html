@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link href="https://fonts.googleapis.com/css?family=Caveat+Brush|Francois+One|Rancho|Rouge+Script|Salsa" rel="stylesheet">
+  <script src="../js/jquery.js"></script>
+  <script src="../js/jscolor.min.js"></script>
+  <script src="../js/script.js"></script>
+</head>
+<body>
+  <main>
+    <section>
+    <div class="container">
+    <div class="row">
+      <div class="six columns">
+    <h2>Join the <br> Cook^in Community</h2>
+      </div>
+      <form action="/users" method="POST">
+      <div class="six columns">
+        <label for="email">Email</label><br>
+        <input id="email" type="text" name="user[email]" placeholder="Email"><br>
+        <label for="password">Password</label><br>
+        <input id="password" type="password" name="user[password]" placeholder="Password"><br>
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+    </div>
+    </section>
+  </main>
+</body>
+</html>
