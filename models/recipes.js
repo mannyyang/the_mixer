@@ -53,5 +53,22 @@ Recipe.create = (req, res, next) => {
 	})
 }
 
+Recipe.update = (req, res, next)  => {
+	const {name, measurements, ingredients, instructions, image, beverageType} = req.body;
+  const {id} = req.params;
+  console.log(req.body);
+  console.log(req.params);
+ 	db.oneOrNone(`UPDATE savedRecipes SET 
+ 		name = $1, measurements = $2, ingredients = $3, instructions = $4, image = $5, beverageType =$6 
+ 		WHERE id = $3 RETURNING *`,
+ 		[name, measurements, ingredients, instructions, image, beverageType, id])
+ 	.then(edit => {
+ 		res.locals.edit = edit;
+ 		next();
+ 	})
+ 	.catch(err => {
+ 		console.log(`ERROR with UPDATE: ${err}`)
+ 	})
+}
 
 module.exports = Recipe;
