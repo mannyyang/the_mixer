@@ -22,7 +22,7 @@ $('#new-task').on('submit', (event) => {
 		success: data => {
 			location.href = `/tasks/${data.id}`
 		},
-		error: `${err}`
+		 error: err => console.log(err)
 	})
 })	
 

@@ -1,9 +1,5 @@
 const axios = require('axios');
 const db 		= require('../db/config');
-// const APP_ID = process.env.APP_ID;
-// const YUMMKEY = process.env.YUMMKEY;
-// const cat_url = `http://api.yummly.com/v1/api/recipes?_app_id=${APP_ID}&_app_key=${YUMMKEY}&cuisine^cuisine-american&allowedCourse[]=course^course-Appetizers`
-//&allowedIngredient[]=garlic&allowedIngredient[]=cognac
 
 const Recipe = {};
 
@@ -21,6 +17,28 @@ Recipe.randomBeverage = (req, res, next) => {
 	})
 }
 
+Recipe.findAll = (req, res, next) => {
+	db.manyOrNone(`SELECT * FROM savedRecipes`)
+	.then(savedAll => {
+		res.locals.savedAll = savedAll;
+		console.log(res.locals.savedAll);
+	})
+	.catch(err => {
+		console.log(`Error obtaining all saved: ${err}`);
+	})
+}
+
+Recipe.findById = (req, res, next) => {
+	const {id} = req.params;
+	db.oneOrNone(`SELECT * FROM savedRecipes WHERE id=$1`, [id])
+	.then(saved => {
+		res.locals.saved = saved;
+	})
+	.catch(err => {
+		console.log('ERROR getting single drink')
+	})
+}
+
 Recipe.create = (req, res, next) => {
   const {name, measurements, ingredients, instructions, image, beverageType} = req.body;
   console.log(req.body);
@@ -35,46 +53,5 @@ Recipe.create = (req, res, next) => {
 	})
 }
 
-// Recipe.getBreakfast = (req, res, next) => {
-// 	axios({
-// 		url: `http://api.yummly.com/v1/api/recipes?_app_id=${APP_ID}&_app_key=${YUMMKEY}&cuisine^cuisine-american&allowedCourse[]=course^course-Breakfast`, 
-// 		method: 'GET'
-// 	}).then(breakfastData => {
-// 		res.locals.breakfastData = breakfastData
-// 		next();
-// 	}).catch(err => {
-// 		console.log(`ERROR grabbing breakfast: ${err}`)
-// 	})
-// }
 
-// fetch all the trains data from the mta API:  http://www.mtastat.us/api/trains
-// Trains.allTrains = (req, res, next) => {
-
-// 	axios({
-//     	url: 'http://www.mtastat.us/api/trains',
-//     	method: 'GET'
-//     }).then(trainsData => {
-//     	// console.log(trainsData.data)
-//     	res.locals.allTrains = trainsData.data
-//   		next();
-//     }).catch(err => {
-//     	console.log(`Error fetching all train data: ${err}`);
-//     })
-// }
-// // fetch a single train's data from the mta API: http://www.mtastat.us/api/trains/${name}
-// Trains.showTrain = (req, res, next) => {
-// 	const name = req.params.name;
-
-// 	axios({
-// 		url: `http://www.mtastat.us/api/trains/${name}`,
-// 		method: 'GET'
-// 	}).then(trainData => {
-// 		res.locals.showTrain = trainData.data;
-// 		next();
-// 	}).catch (err => {
-//     	console.log(`Error fetching all train data: ${err}`);
-//     })
-// }
-
-// module.exports = Trains;
 module.exports = Recipe;

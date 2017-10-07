@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Drinks</title>
+	<link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+	<script src="../js/jquery.js"></script>
+  <script src="../js/script.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Edit Beverage</h1>
+	<form class="beverage_edit">
+		<label>Title:</label>
+		<input id="edit-title" value={{name}}>
+		<br>
+		<label>Measurements</label>
+		<input id="edit-measurements" value={{measurements}}>
+		<br>
+		<label>Ingredients</label>
+		<input id="edit-ingredients" value={{ingredients}}>
+		<br>
+		<label>Instructions</label>
+		<input id="edit-instructions" value={{instruction}}>
+		<br>
+		<label>Image</label>
+		<input id="edit-image" value={{image}}>
+		<br>
+		<select class="one column" id="edit-beverageType">
+        <option value="Option 1">Alcoholic</option>
+        <option value="Option 2">Non-alcoholic</option>
+      </select>  
+     <button type="submit">Submit</button>
+     </form>
+</div>
+</body>
