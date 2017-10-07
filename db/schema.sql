@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS archives;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS savedRecipes CASCADE;
 
 -- CREATE TABLE archive (
 -- 	id SERIAL PRIMARY KEY,
@@ -21,5 +21,5 @@ CREATE TABLE savedRecipes (
 	instructions TEXT,
 	image TEXT,
 	beverageType VARCHAR,
-	user_id SERIAL REFERENCE id
+	user_id SERIAL REFERENCES users(id)
 );

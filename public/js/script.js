@@ -9,20 +9,22 @@ function refreshIt() {
 
 $('#new-task').on('submit', (event) => {
 	event.preventDefault();
+	
 	const newData = {
 		name: $('#title').val(),
-		measurements: $('#measurement').val(),
-		ingredients: $('#ingredient').val(),
+		measurements: $('#measurements').val(),
+		ingredients: $('#ingredients').val(),
 		instructions: $('#instructions').val(),
+		beverageType: $('#beverageType').val(),
 		image: $('#img_url').val()
 	}
 	$.ajax('/tasks/', {
 		method: 'POST', 
 		data: newData,
 		success: data => {
-			location.href = `/tasks/${data.id}`
+			window.location.href = `/recipes/${data.id}`;
 		},
-		 error: err => console.log(err)
+		error: err => console.log(err)
 	})
 })	
 

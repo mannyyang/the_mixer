@@ -33,6 +33,7 @@ Recipe.findById = (req, res, next) => {
 	db.oneOrNone(`SELECT * FROM savedRecipes WHERE id=$1`, [id])
 	.then(saved => {
 		res.locals.saved = saved;
+		next();
 	})
 	.catch(err => {
 		console.log('ERROR getting single drink')
@@ -42,7 +43,7 @@ Recipe.findById = (req, res, next) => {
 Recipe.create = (req, res, next) => {
   const {name, measurements, ingredients, instructions, image, beverageType} = req.body;
   console.log(req.body);
-  db.one(`INSERT INTO savedRecipes name, measurements, ingredients, instructions, image, beverageType) VALUES($1, $2, $3, $4, $5, $6) RETURNING *`, [name, measurements, ingredients, instructions, image, alcoholPref])
+  db.one(`INSERT INTO savedRecipes (name, measurements, ingredients, instructions, image, beverageType) VALUES($1, $2, $3, $4, $5, $6) RETURNING *`, [name, measurements, ingredients, instructions, image, beverageType])
     .then(created => {
       res.locals.created = created;
       console.log(res.locals.created);
