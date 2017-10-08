@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<h1>Edit Beverage</h1>
-	<form class="beverage_edit">
+	<form class="beverage_edit" id="beverageEdit">
 		<label>Title:</label>
 		<input id="edit-title" value={{name}}>
 		<br>
@@ -29,8 +29,8 @@
 		<input id="edit-image" value={{image}}>
 		<br>
 		<select class="one column" id="edit-beverageType">
-        <option value="Option 1">Alcoholic</option>
-        <option value="Option 2">Non-alcoholic</option>
+        <option value="Alcoholic">Alcoholic</option>
+        <option value="Non-alcoholic">Non-alcoholic</option>
       </select>  
      <button type="submit">Submit</button>
      </form>

@@ -15,16 +15,11 @@ function sql(file) {
 	return new pgp.QueryFile(fullPath, { minify: true });
 }
 
-// Create a QueryFile globally, once per file:
-const sqlFindUser = sql('./schema.sql');
-db.query(sqlFindUser)
-	.then(user => {
-		console.log(user);
-	})
+// Execute all statements found in schema.sql
+const sqlStatements = sql('./schema.sql');
+db.query(sqlStatements)
 	.catch(error => {
-		if (error instanceof pgp.errors.QueryFileError) {
-			// => the error is related to our QueryFile
-		}
+		throw error;
 	});
 
 module.exports = db;

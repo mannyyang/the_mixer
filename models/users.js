@@ -1,10 +1,6 @@
 const bcrypt = require('bcryptjs');
-
 const db = require('../db/config');
-
 const User = {};
-
-
 
 User.create = (user) => {
 	const passwordDigest = bcrypt.hashSync(user.password, 10);
